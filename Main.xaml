@@ -1,0 +1,123 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="HereAndShare.Main"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="clr-namespace:HereAndShare.Models"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>            
+        </Grid.RowDefinitions>        
+        
+        <Grid.Resources>
+            <models:ListPublication x:Key="data"/>
+        </Grid.Resources>
+               
+        <phone:Pivot Title="HereAndShare" Foreground="White">
+            <phone:PivotItem Header="Descubre">
+                <!--List of publications, represents for list of items.-->
+                <phone:LongListSelector x:Name="listProducts" ItemsSource="{Binding Source={StaticResource data}, Path=Data}">
+                    <phone:LongListSelector.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Margin="0,0,0,15">
+                                <Grid>
+                                    <Grid Height="105" Width="105" HorizontalAlignment="Left" Margin="0,0,0,0">
+                                        <Image x:Name="ImageProductPublication" Source="{Binding ImageProduct}"></Image>
+                                    </Grid>
+                                    <Grid HorizontalAlignment="Left" Margin="155,10,0,70">
+                                        <TextBlock>
+                                        <Run Text="Estoy en:"/>
+                                        <Run Text="{Binding Place}" Foreground="GreenYellow" FontWeight="Bold"/>
+                                        </TextBlock>
+                                    </Grid>
+                                    <Grid HorizontalAlignment="Right" Margin="0,35,5,0">
+                                        <TextBlock>
+                                        <Run Text="Y recomiendo:"/>
+                                        <Run  Text="{Binding Product}" Foreground="Orange" FontWeight="Bold"/>
+                                        </TextBlock>
+                                    </Grid>
+                                    <Grid HorizontalAlignment="Left" Margin="100,60,0,0">
+                                        <HyperlinkButton x:Name="LinkGoToProfile" Click="LinkGoToProfile_Click" Content="{Binding Usuario}" HorizontalAlignment="Left"></HyperlinkButton>    
+                                    </Grid>
+                                    <Grid HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,140,-20">
+                                        <Button Content="&#xe19f;" FontFamily="Segoe UI Symbol" FontSize="30" BorderBrush="Transparent"></Button>
+                                    </Grid>
+                                    <Grid HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,90,-25">
+                                        <Button Content="&#xe135;" FontFamily="Segoe UI Symbol" FontSize="35" BorderBrush="Transparent"></Button>
+                                    </Grid>
+                                    <Grid HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,50,-20">
+                                        <Button Content="&#xe269;" FontFamily="Segoe UI Symbol" FontSize="40" BorderBrush="Transparent"></Button>
+                                    </Grid>
+                                    <Grid HorizontalAlignment="Right" Margin="0,60,10,0">
+                                        <TextBlock Height="30" Width="60">
+                                        <Run Text="10 min"/>
+                                        </TextBlock>
+                                    </Grid>
+                                </Grid>                                
+                            </StackPanel>
+                        </DataTemplate>
+                    </phone:LongListSelector.ItemTemplate>
+                </phone:LongListSelector>
+            </phone:PivotItem>
+            <phone:PivotItem Header="Favoritos">
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" Foreground="Orange">Hola</TextBlock>
+            </phone:PivotItem>
+            <phone:PivotItem Header="Perfil">
+                <StackPanel>
+                    <Grid>
+                        <Grid Width="230" Height="200" HorizontalAlignment="Left">
+                            <Image x:Name="ImageProfile" Source="Images/NoImage.jpg"></Image>
+                        </Grid>
+                        <Grid HorizontalAlignment="Right" Margin="0,0,0,130">
+                            <Button  Content="Cambiar Foto" Height="70" Width="230"></Button>
+                        </Grid>
+                        <Grid HorizontalAlignment="Right" Margin="0,0,0,0">
+                            <TextBox Width="230" Height="75"></TextBox>
+                        </Grid>
+                        <Grid HorizontalAlignment="Right" Margin="0,130,0,0">
+                            <TextBox Width="230" Height="75"></TextBox>
+                        </Grid>                        
+                    </Grid>
+                    <TextBlock Text="Ciudad"></TextBlock>
+                    <TextBox></TextBox>
+                    <TextBlock Text="Correo electrónico"></TextBlock>
+                    <TextBox></TextBox>
+                    <TextBlock Text="Contraseña"></TextBlock>
+                    <PasswordBox></PasswordBox>
+                    <TextBlock Text="Intereses"></TextBlock>
+                    <TextBox></TextBox>
+                </StackPanel>                
+            </phone:PivotItem>
+            <phone:PivotItem Header="Publicados">
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" Foreground="Yellow">Hola</TextBlock>
+            </phone:PivotItem>
+        </phone:Pivot>
+        
+        
+
+        <!--TitlePanel contains the name of the application and page title--><!--
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Text="HereAndShare" Foreground="GreenYellow" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
+            <TextBlock Text="Registro" FontSize="50" Foreground="Orange" Margin="30,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>-->
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+
+        </Grid>
+    </Grid>
+
+</phone:PhoneApplicationPage>
