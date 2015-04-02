@@ -66,6 +66,18 @@
     <AppxPackagedFile Include="C:\Users\Adrián\Documents\Visual Studio 2013\Projects\HereAndShare\HereAndShare\Assets\Tiles\IconicTileSmall.png">
       <PackagePath>Assets\Tiles\IconicTileSmall.png</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Adrián\Documents\Visual Studio 2013\Projects\HereAndShare\HereAndShare\Images\Add.png">
+      <PackagePath>Images\Add.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Adrián\Documents\Visual Studio 2013\Projects\HereAndShare\HereAndShare\Images\Earth.png">
+      <PackagePath>Images\Earth.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Adrián\Documents\Visual Studio 2013\Projects\HereAndShare\HereAndShare\Images\Like.png">
+      <PackagePath>Images\Like.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Adrián\Documents\Visual Studio 2013\Projects\HereAndShare\HereAndShare\Images\Search.png">
+      <PackagePath>Images\Search.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Adrián\Documents\Visual Studio 2013\Projects\HereAndShare\HereAndShare\Images\NoImage.jpg">
       <PackagePath>Images\NoImage.jpg</PackagePath>
     </AppxPackagedFile>

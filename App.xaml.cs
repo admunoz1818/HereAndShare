@@ -228,5 +228,10 @@ namespace HereAndShare
                 throw;
             }
         }
+
+        private void LinkGoToProfile_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

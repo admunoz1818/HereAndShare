@@ -176,7 +176,11 @@
     <Content Include="Assets\Tiles\IconicTileSmall.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\Add.png" />
+    <Content Include="Images\Earth.png" />
+    <Content Include="Images\Like.png" />
     <Content Include="Images\NoImage.jpg" />
+    <Content Include="Images\Search.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\AppResources.resx">

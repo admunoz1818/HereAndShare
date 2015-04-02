@@ -20,56 +20,16 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>            
-        </Grid.RowDefinitions>        
-        
+        </Grid.RowDefinitions>
+
         <Grid.Resources>
             <models:ListPublication x:Key="data"/>
         </Grid.Resources>
                
         <phone:Pivot Title="HereAndShare" Foreground="White">
-            <phone:PivotItem Header="Descubre">
-                <!--List of publications, represents for list of items.-->
-                <phone:LongListSelector x:Name="listProducts" ItemsSource="{Binding Source={StaticResource data}, Path=Data}">
-                    <phone:LongListSelector.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel Margin="0,0,0,15">
-                                <Grid>
-                                    <Grid Height="105" Width="105" HorizontalAlignment="Left" Margin="0,0,0,0">
-                                        <Image x:Name="ImageProductPublication" Source="{Binding ImageProduct}"></Image>
-                                    </Grid>
-                                    <Grid HorizontalAlignment="Left" Margin="155,10,0,70">
-                                        <TextBlock>
-                                        <Run Text="Estoy en:"/>
-                                        <Run Text="{Binding Place}" Foreground="GreenYellow" FontWeight="Bold"/>
-                                        </TextBlock>
-                                    </Grid>
-                                    <Grid HorizontalAlignment="Right" Margin="0,35,5,0">
-                                        <TextBlock>
-                                        <Run Text="Y recomiendo:"/>
-                                        <Run  Text="{Binding Product}" Foreground="Orange" FontWeight="Bold"/>
-                                        </TextBlock>
-                                    </Grid>
-                                    <Grid HorizontalAlignment="Left" Margin="100,60,0,0">
-                                        <HyperlinkButton x:Name="LinkGoToProfile" Click="LinkGoToProfile_Click" Content="{Binding Usuario}" HorizontalAlignment="Left"></HyperlinkButton>    
-                                    </Grid>
-                                    <Grid HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,140,-20">
-                                        <Button Content="&#xe19f;" FontFamily="Segoe UI Symbol" FontSize="30" BorderBrush="Transparent"></Button>
-                                    </Grid>
-                                    <Grid HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,90,-25">
-                                        <Button Content="&#xe135;" FontFamily="Segoe UI Symbol" FontSize="35" BorderBrush="Transparent"></Button>
-                                    </Grid>
-                                    <Grid HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,50,-20">
-                                        <Button Content="&#xe269;" FontFamily="Segoe UI Symbol" FontSize="40" BorderBrush="Transparent"></Button>
-                                    </Grid>
-                                    <Grid HorizontalAlignment="Right" Margin="0,60,10,0">
-                                        <TextBlock Height="30" Width="60">
-                                        <Run Text="10 min"/>
-                                        </TextBlock>
-                                    </Grid>
-                                </Grid>                                
-                            </StackPanel>
-                        </DataTemplate>
-                    </phone:LongListSelector.ItemTemplate>
+            <phone:PivotItem Header="Descubre" Margin="20,15,0,0">
+                <phone:LongListSelector x:Name="listProducts" ItemTemplate="{StaticResource MediumImageDetailTemplate}" ItemsSource="{Binding Source={StaticResource data}, Path=Data}">
+                   
                 </phone:LongListSelector>
             </phone:PivotItem>
             <phone:PivotItem Header="Favoritos">
@@ -104,20 +64,19 @@
             <phone:PivotItem Header="Publicados">
                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" Foreground="Yellow">Hola</TextBlock>
             </phone:PivotItem>
-        </phone:Pivot>
-        
-        
-
-        <!--TitlePanel contains the name of the application and page title--><!--
-        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="HereAndShare" Foreground="GreenYellow" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
-            <TextBlock Text="Registro" FontSize="50" Foreground="Orange" Margin="30,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
-        </StackPanel>-->
+        </phone:Pivot>      
 
         <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">            
         </Grid>
+        
     </Grid>
-
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
+            <shell:ApplicationBarIconButton IconUri="/Images/Search.png" Text="Agregar"/>
+            <shell:ApplicationBarIconButton IconUri="/Images/Add.png" Text="Nuevo"/>
+            <shell:ApplicationBarIconButton IconUri="/Images/Like.png" Text="Me gusta"/>
+            <shell:ApplicationBarIconButton IconUri="/Images/Earth.png" Text="Ubicación"/>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
 </phone:PhoneApplicationPage>
