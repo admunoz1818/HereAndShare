@@ -233,5 +233,10 @@ namespace HereAndShare
         {
 
         }
+
+        private void AppBarAddRecommendation_Click(object sender, EventArgs e)
+        {
+            (Application.Current.RootVisual as PhoneApplicationFrame).Navigate(new Uri("/NewPublication.xaml", UriKind.RelativeOrAbsolute));
+        }
     }
 }

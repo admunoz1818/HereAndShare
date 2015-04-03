@@ -48,7 +48,7 @@
             </StackPanel>    
             <Button x:Name="ButtonNewImage" Content="Seleccionar" Height="70" Width="230" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1" Grid.ColumnSpan="1" ></Button>
             <Image x:Name="newImage" Grid.Row="1" Grid.Column="2" Source="Images/NoImage.jpg" Height="152" Width="152"></Image>
-            <Button x:Name="ButtonNewCancel" Content="Cancelar"  Grid.Row="2" Grid.Column="0" Margin="0,15,0,0"></Button>
+            <Button x:Name="ButtonNewCancel" Content="Cancelar" Grid.Row="2" Grid.Column="0" Margin="0,15,0,0" Click="ButtonNewCancel_Click"></Button>
             <Button x:Name="ButtonNewPublication" Content="Publicar" Grid.Row="2" Grid.Column="1" Margin="0,15,0,0"></Button>
         </Grid>
     </Grid>

@@ -38,5 +38,18 @@ namespace HereAndShare
             ApplicationBarMenuItem appBarMenuItem = new ApplicationBarMenuItem(AppResources.AppBarMenuItemText);
             ApplicationBar.MenuItems.Add(appBarMenuItem);
         }
+
+        private void Pivot_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            switch (((Pivot)sender).SelectedIndex)
+            {
+                case 0:
+                    ApplicationBar = ((ApplicationBar)Application.Current.Resources["AppBarDescubre"]);
+                    break;
+                case 1:
+                    ApplicationBar = ((ApplicationBar)Application.Current.Resources["AppBarPerfil"]);
+                    break;
+            }
+        }
     }
 }

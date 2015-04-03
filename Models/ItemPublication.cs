@@ -16,5 +16,28 @@ namespace HereAndShare.Models
         public Image ImageProduct { get; set; }
         public String Time { get; set; }
         public int Likes { get; set; }
+
+        public ItemPublication()
+        {
+            Place = "";
+            Product = "";
+            Usuario = "";
+            ImageProduct = null;
+            Time = null;
+            Likes = 0;
+        }
+
+        public ItemPublication(String Place, String Product, String Usuario, Image ImageProduct, int Likes)
+        {
+            this.Place = Place;
+            this.Product = Product;
+            this.Usuario = Usuario;
+            this.ImageProduct = ImageProduct;
+            this.Time = Time;
+            this.Likes = Likes;
+        }
     }
+
+
+
 }

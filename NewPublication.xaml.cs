@@ -16,5 +16,10 @@ namespace HereAndShare
         {
             InitializeComponent();
         }
+
+        private void ButtonNewCancel_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }
