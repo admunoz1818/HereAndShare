@@ -22,7 +22,7 @@
         <shell:ApplicationBar x:Key="AppBarPerfil" IsVisible="True" IsMenuEnabled="True">
             <shell:ApplicationBarIconButton IconUri="/Images/Search.png" Text="Agregar"/>
             <shell:ApplicationBarIconButton IconUri="/Images/Add.png" Text="Nuevo"/>
-        </shell:ApplicationBar>
+        </shell:ApplicationBar>        
     </Application.Resources>
 
     <Application.ApplicationLifetimeObjects>

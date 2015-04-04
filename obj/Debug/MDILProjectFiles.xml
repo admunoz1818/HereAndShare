@@ -20,9 +20,16 @@
     <File>Images\Like.png</File>
     <File>Images\NoImage.jpg</File>
     <File>Images\Search.png</File>
+    <File>README_FIRST.txt</File>
+    <File>Toolkit.Content\ApplicationBar.Add.png</File>
+    <File>Toolkit.Content\ApplicationBar.Cancel.png</File>
+    <File>Toolkit.Content\ApplicationBar.Check.png</File>
+    <File>Toolkit.Content\ApplicationBar.Delete.png</File>
+    <File>Toolkit.Content\ApplicationBar.Select.png</File>
     <File>AppManifest.xaml</File>
     <File>Assets\ApplicationIcon.png</File>
     <File>Assets\Tiles\FlipCycleTileMedium.png</File>
+    <File>Microsoft.Phone.Controls.Toolkit.dll</File>
     <File>WMAppManifest.xml</File>
     <File>AppxManifest.xml</File>
   </XAPFiles>

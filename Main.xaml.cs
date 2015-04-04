@@ -8,19 +8,74 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using HereAndShare.Resources;
+using System.Windows.Media;
+using System.Windows.Shapes;
+using Microsoft.Phone.Tasks;
+using System.IO.IsolatedStorage;
+using System.Windows.Media.Imaging;
+using System.IO;
 
 namespace HereAndShare
 {
     public partial class Main : PhoneApplicationPage
     {
+        /*Constructor*/
         public Main()
         {
             InitializeComponent();
+        }    
+
+        /*Events*/
+        private void ChangedPhotoProfile_Click(object sender, RoutedEventArgs e)
+        {
+            PhotoChooserTask task = new PhotoChooserTask();
+            task.PixelWidth = 300;
+            task.PixelHeight = 300;
+            task.Completed += task_Completed;
+            task.ShowCamera = true;
+            task.Show();
         }
 
         private void LinkGoToProfile_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Uri("/Main.xaml?PivotMain.SelectedIndex = 2", UriKind.Relative));
+        }
+
+        /*Methods*/
+        private void task_Completed(object sender, PhotoResult e)
+        {
+            if (e.TaskResult == TaskResult.OK)
+            {
+                IsolatedStorageFile isoStorage = IsolatedStorageFile.GetUserStoreForApplication();
+
+                //Best practice is to check whether the file with same name doesn't exits then create a new file
+                if (!isoStorage.FileExists("existing.jpg"))
+                {
+                    IsolatedStorageFileStream fileStream = isoStorage.CreateFile("existing.jpg");
+                    BitmapImage bitmap = new BitmapImage();
+                    bitmap.DecodePixelHeight = 300;
+                    bitmap.DecodePixelWidth = 300;
+                    bitmap.SetSource(e.ChosenPhoto);
+                    WriteableBitmap wb = new WriteableBitmap(bitmap);
+                    wb.SaveJpeg(fileStream, 300, 300, 0, 85);
+                    fileStream.Close();
+                }
+                //IsolatedStorageFile isoStorage = IsolatedStorageFile.GetUserStoreForApplication();
+
+                //Best practice is to check whether the file with a given name exists in isolated storage or not
+                if (isoStorage.FileExists("existing.jpg"))
+                {
+                    using (IsolatedStorageFileStream fileStream = isoStorage.OpenFile("existing.jpg", FileMode.Open, FileAccess.Read))
+                    {
+                        //read the saved image
+                        BitmapImage bitmap = new BitmapImage();
+                        bitmap.SetSource(fileStream);
+
+                        //display the image in the imagecontrol
+                        ImageProfile.Source = bitmap;
+                    }
+                }
+            }
         }
 
         //Sample code for building a localized ApplicationBar
@@ -39,6 +94,7 @@ namespace HereAndShare
             ApplicationBar.MenuItems.Add(appBarMenuItem);
         }
 
+        //To change pivot
         private void Pivot_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             switch (((Pivot)sender).SelectedIndex)
@@ -50,6 +106,6 @@ namespace HereAndShare
                     ApplicationBar = ((ApplicationBar)Application.Current.Resources["AppBarPerfil"]);
                     break;
             }
-        }
+        }        
     }
 }

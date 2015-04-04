@@ -28,37 +28,39 @@
                
         <phone:Pivot Title="HereAndShare" Foreground="White" SelectionChanged="Pivot_SelectionChanged">
             <phone:PivotItem Header="Descubre" Name="PivotDescubre"  Margin="20,15,0,0">
-                <phone:LongListSelector x:Name="listProducts" ItemsSource="{Binding Source={StaticResource data}, Path=Data}">
-                    <phone:LongListSelector.ItemTemplate>
-                        <DataTemplate>
-                            <Grid Margin="0,0,0,12">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
-                                <Image Source="/Images/NoImage.jpg" Width="98" Height="98" />
-                                <StackPanel Grid.Column="1"  Margin="18,0,0,0">
-                                    <TextBlock>
+                <Grid Grid.Row="1" Height="620">
+                    <phone:LongListSelector x:Name="listProducts" ItemsSource="{Binding Source={StaticResource data}, Path=Data}">
+                        <phone:LongListSelector.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Margin="0,0,0,12">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="/Images/NoImage.jpg" Width="98" Height="98" />
+                                    <StackPanel Grid.Column="1"  Margin="18,0,0,0">
+                                        <TextBlock>
                                         <Run Text="Estoy en:"/>
                                         <Run Text="{Binding Place}" Foreground="GreenYellow" FontWeight="Bold"/>
-                                    </TextBlock>
-                                    <TextBlock>
+                                        </TextBlock>
+                                        <TextBlock>
                                         <Run Text="Y recomiendo:"/>
                                         <Run Text="{Binding Product}" Foreground="Orange" FontWeight="Bold"/>
-                                    </TextBlock>
-                                    <HyperlinkButton x:Name="LinkGoToProfile" Click="LinkGoToProfile_Click" Content="{Binding Usuario}"                    
+                                        </TextBlock>
+                                        <HyperlinkButton x:Name="LinkGoToProfile" Click="LinkGoToProfile_Click" Content="{Binding Usuario}"                    
                                         Foreground="{StaticResource PhoneSubtleBrush}" Padding="0,0,20,0" HorizontalAlignment="Left" Margin="-10,0,0,0" />
-                                    <TextBlock Margin="130,-28,0,0">
+                                        <TextBlock Margin="130,-28,0,0">
                                         <Run Text="{Binding Likes}"  FontWeight="Bold"/>
                                         <Run Text="me gustas"/>
-                                    </TextBlock>
-                                    <TextBlock Text="{Binding Time}" Foreground="{StaticResource PhoneSubtleBrush}"  Margin="270,-28,0,0"></TextBlock>
-                                    <!--<Button Content="&#xe19f;" Margin="-30,-50,0,0" FontFamily="Segoe UI Symbol" FontSize="20" BorderBrush="Transparent"></Button>-->
-                                </StackPanel>
-                            </Grid>
-                        </DataTemplate>
-                    </phone:LongListSelector.ItemTemplate>
-                </phone:LongListSelector>
+                                        </TextBlock>
+                                        <TextBlock Text="{Binding Time}" Foreground="{StaticResource PhoneSubtleBrush}"  Margin="270,-28,0,0"></TextBlock>
+                                        <!--<Button Content="&#xe19f;" Margin="-30,-50,0,0" FontFamily="Segoe UI Symbol" FontSize="20" BorderBrush="Transparent"></Button>-->
+                                    </StackPanel>
+                                </Grid>
+                            </DataTemplate>
+                        </phone:LongListSelector.ItemTemplate>
+                    </phone:LongListSelector>
+                </Grid>
             </phone:PivotItem>            
             <phone:PivotItem Header="Perfil" Name="PivotPerfil">
                 <StackPanel>
@@ -67,23 +69,22 @@
                             <Image x:Name="ImageProfile" Source="Images/NoImage.jpg"></Image>
                         </Grid>
                         <Grid HorizontalAlignment="Right" Margin="0,0,0,130">
-                            <Button  Content="Cambiar Foto" Height="70" Width="230"></Button>
+                            <Button x:Name="ChangedPhotoProfile" Content="Cambiar Foto" Click="ChangedPhotoProfile_Click" Height="70" Width="230"></Button>
                         </Grid>
                         <Grid HorizontalAlignment="Right" Margin="0,0,0,0">
-                            <TextBox Width="230" Height="75"></TextBox>
+                            <TextBox Name="ttbName" Width="230" Height="75"></TextBox>
                         </Grid>
                         <Grid HorizontalAlignment="Right" Margin="0,130,0,0">
-                            <TextBox Width="230" Height="75"></TextBox>
+                            <TextBox Name="ttbUser" Text="@juanperez" Width="230" Height="75" IsReadOnly="True"/>
                         </Grid>                        
                     </Grid>
-                    <TextBlock Text="Ciudad"></TextBlock>
-                    <TextBox></TextBox>
+                    
+                    <TextBlock Text="Ciudad" Margin="0,30,0,0"></TextBlock>
+                    <TextBox Name="ttbCity"></TextBox>
                     <TextBlock Text="Correo electrónico"></TextBlock>
-                    <TextBox></TextBox>
+                    <TextBox Name="ttbEmail"></TextBox>
                     <TextBlock Text="Contraseña"></TextBlock>
-                    <PasswordBox></PasswordBox>
-                    <TextBlock Text="Intereses"></TextBlock>
-                    <TextBox></TextBox>
+                    <PasswordBox Name="ttbPassword"></PasswordBox>                   
                 </StackPanel>                
             </phone:PivotItem>            
         </phone:Pivot>      

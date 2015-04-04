@@ -17,7 +17,6 @@ namespace HereAndShare
         public MainPage()
         {
             InitializeComponent();
-
             // Sample code to localize the ApplicationBar
             //BuildLocalizedApplicationBar();
         }
@@ -35,7 +34,7 @@ namespace HereAndShare
         private void LinkGoToMain_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Uri("/Main.xaml", UriKind.Relative));
-        }
+        }     
 
         // Sample code for building a localized ApplicationBar
         //private void BuildLocalizedApplicationBar()

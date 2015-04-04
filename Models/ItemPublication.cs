@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace HereAndShare.Models
 {
@@ -13,7 +14,7 @@ namespace HereAndShare.Models
         public String Place { get; set; }
         public String Product { get; set; }
         public String Usuario { get; set; }
-        public Image ImageProduct { get; set; }
+        public BitmapImage ImageProduct { get; set; }
         public String Time { get; set; }
         public int Likes { get; set; }
 
@@ -27,7 +28,7 @@ namespace HereAndShare.Models
             Likes = 0;
         }
 
-        public ItemPublication(String Place, String Product, String Usuario, Image ImageProduct, int Likes)
+        public ItemPublication(String Place, String Product, String Usuario, BitmapImage ImageProduct, int Likes)
         {
             this.Place = Place;
             this.Product = Product;

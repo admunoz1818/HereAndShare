@@ -21,24 +21,28 @@ namespace HereAndShare.Models
                 if (data == null)
                 {
                     data = new ObservableCollection<ItemPublication>();
-                    Image img = new Image();
+                   
                     BitmapImage bitmapImage = new BitmapImage();
-                    Uri uri = new Uri("ms-appx:///Assets/Logo.png");
+                    Uri uri = new Uri("ms-appx:///Images/NoImage.jpg");
                     bitmapImage.UriSource = uri;
-                    img.Source = bitmapImage;
-                    
-                    ItemPublication item1 = new ItemPublication() { Place = "Mattelsa", Product = "Jean Sport Negro", Usuario = "@juanperez", ImageProduct = img, Time=convertTime(System.DateTime.Now), Likes = 100};
-                    ItemPublication item2 = new ItemPublication() { Place = "Carbones Dorados", Product = "Un perro especial", Usuario = "@linahoyos", ImageProduct = img, Time = convertTime(System.DateTime.Now), Likes = 2 };
-                    ItemPublication item3 = new ItemPublication() { Place = "Specialized Biclycles", Product = "Fat Bike XB200", Usuario = "@marcelag", ImageProduct = img, Time = convertTime(System.DateTime.Now), Likes= 150 };
-                    ItemPublication item4 = new ItemPublication() { Place = "Sitio!", Product = "Hamburguesa Doble", Usuario = "@juanperez", ImageProduct = img, Time = convertTime(System.DateTime.Now), Likes = 14 };
-                    ItemPublication item5 = new ItemPublication() { Place = "Plazita Terminal", Product = "Piña x 10", Usuario = "@marcelag", ImageProduct = img, Time = convertTime(System.DateTime.Now), Likes = 8 };
-                    ItemPublication item6 = new ItemPublication() { Place = "Carbones Dorados", Product = "Lasaña", Usuario = "@marcoprieto", ImageProduct = img, Time = convertTime(System.DateTime.Now), Likes = 26};
+
+                    ItemPublication item1 = new ItemPublication() { Place = "Mattelsa", Product = "Jean Sport Negro", Usuario = "@juanperez", ImageProduct = bitmapImage, Time = convertTime(System.DateTime.Now), Likes = 100 };
+                    ItemPublication item2 = new ItemPublication() { Place = "Carbones Dorados", Product = "Un perro especial", Usuario = "@linahoyos", ImageProduct = bitmapImage, Time = convertTime(System.DateTime.Now), Likes = 2 };
+                    ItemPublication item3 = new ItemPublication() { Place = "Specialized Biclycles", Product = "Fat Bike XB200", Usuario = "@marcelag", ImageProduct = bitmapImage, Time = convertTime(System.DateTime.Now), Likes = 150 };
+                    ItemPublication item4 = new ItemPublication() { Place = "Sitio!", Product = "Hamburguesa Doble", Usuario = "@juanperez", ImageProduct = bitmapImage, Time = convertTime(System.DateTime.Now), Likes = 14 };
+                    ItemPublication item5 = new ItemPublication() { Place = "Plazita Terminal", Product = "Piña x 10", Usuario = "@marcelag", ImageProduct = bitmapImage, Time = convertTime(System.DateTime.Now), Likes = 8 };
+                    ItemPublication item6 = new ItemPublication() { Place = "Carbones Dorados", Product = "Lasaña", Usuario = "@marcoprieto", ImageProduct = bitmapImage, Time = convertTime(System.DateTime.Now), Likes = 26 };
+                    ItemPublication item7 = new ItemPublication() { Place = "Plazita Terminal", Product = "Piña x 10", Usuario = "@yoyo", ImageProduct = bitmapImage, Time = convertTime(System.DateTime.Now), Likes = 80 };
+                    ItemPublication item8 = new ItemPublication() { Place = "Carbones Dorados", Product = "Lasaña", Usuario = "@lala", ImageProduct = bitmapImage, Time = convertTime(System.DateTime.Now), Likes = 1 };
+                   
                     data.Add(item1);
                     data.Add(item2);
                     data.Add(item3);
                     data.Add(item4);
                     data.Add(item5);
                     data.Add(item6);
+                    data.Add(item7);
+                    data.Add(item8);
                 }
                 return data;
             }
