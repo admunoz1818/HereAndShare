@@ -30,15 +30,15 @@
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
             <StackPanel>
                 <TextBlock Text="Nombre"></TextBlock>
-                <TextBox x:Name="nombre"></TextBox>
+                <TextBox x:Name="newName"></TextBox>
                 <TextBlock Text="Nombre de usuario"></TextBlock>
-                <TextBox x:Name="usuario"></TextBox>
+                <TextBox x:Name="newUser"></TextBox>
                 <TextBlock Text="Correo electrónico"></TextBlock>
-                <TextBox x:Name="correoNuevo"></TextBox>
+                <TextBox x:Name="newEmail"></TextBox>
                 <TextBlock Text="Contraseña"></TextBlock>
-                <PasswordBox x:Name="contra1"></PasswordBox>
+                <PasswordBox x:Name="newPass1"></PasswordBox>
                 <TextBlock Text="Confirmar contraseña"></TextBlock>
-                <PasswordBox x:Name="contraR"></PasswordBox>
+                <PasswordBox x:Name="newPass2"></PasswordBox>
                 <Button x:Name="ButtonRegistration" Click="ButtonRegistration_Click" Content="Registrarse" HorizontalAlignment="Left" Width="200"></Button>
                 <HyperlinkButton x:Name="GoFromRegistrationToMain" Click="GoFromRegistrationToMain_Click" Content="Saltar por ahora" HorizontalAlignment="Right" FontSize="25" Margin="0,20,20,15"/>
             </StackPanel>

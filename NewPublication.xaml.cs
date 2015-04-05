@@ -17,16 +17,21 @@ using Microsoft.Phone.Tasks;
 using System.IO.IsolatedStorage;
 using System.Windows.Media.Imaging;
 using System.IO;
+using HereAndShare.Models;
+using HereAndShare.Net;
 
 namespace HereAndShare
 {
     public partial class NewPublication : PhoneApplicationPage
     {
+        Mongo<ItemPost> itemPostMongo;
+        //Constructor
         public NewPublication()
         {
             InitializeComponent();
             //For load you location
             ShowMyLocationOnTheMap();
+            itemPostMongo = new Mongo<ItemPost>("9NlswL-HnWVU8mwH5zi8B8mgF7us7wHl", "hereandshare", "itemsPost");
         }
 
         /*For see you location on the map*/
@@ -36,8 +41,7 @@ namespace HereAndShare
             Geolocator myGeolocator = new Geolocator();
             Geoposition myGeoposition = await myGeolocator.GetGeopositionAsync();
             Geocoordinate myGeocoordinate = myGeoposition.Coordinate;
-            GeoCoordinate myGeoCoordinate =
-                CoordinateConverter.ConvertGeocoordinate(myGeocoordinate);
+            GeoCoordinate myGeoCoordinate = CoordinateConverter.ConvertGeocoordinate(myGeocoordinate);
             // Make my current location the center of the Map.
             this.mapWithMyLocation.Center = myGeoCoordinate;
             this.mapWithMyLocation.ZoomLevel = 13;
@@ -169,7 +173,79 @@ namespace HereAndShare
             }
         }
 
-      
-                        
+        /*To post a recommendation*/
+        private void ButtonNewPublication_Click(object sender, RoutedEventArgs e)
+        {            
+            try
+            {
+                ItemPost newPost = new ItemPost()
+                {
+                    Place = NewPlace.Text,
+                    Product = newProduct.Text,
+                    Usuario = "@juanperez",
+                    ImageProduct = newImage.Source as BitmapImage,
+                    Time = convertTime(System.DateTime.Now)
+                };
+                itemPostMongo.insertDocument(newPost);
+                MessageBox.Show("Recomendación publicada", "¡Aviso!", MessageBoxButton.OK);
+                NavigationService.Navigate(new Uri("/Main.xaml?PivotMain.SelectedIndex = 1", UriKind.Relative));
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Compruebe la conexión a internet", "Error de conexión", MessageBoxButton.OKCancel);
+                throw;
+            }
+        }
+
+        //To convert date in string
+        public String convertTime(DateTime date)
+        {
+            int remMon = System.DateTime.Now.Month - date.Month;
+            int remDay = System.DateTime.Now.Day - date.Day;
+            int remHour = System.DateTime.Now.Hour - date.Hour;
+            int remMin = System.DateTime.Now.Minute - date.Minute;
+
+            if (remMin < 0)
+                remMin = remMin * (-1);
+
+            String answer = "0 tiempo";
+
+            if (remHour < 1)
+            {
+                answer = remMin + " mins";
+            }
+            else
+            {
+                if (remHour == 1)
+                {
+                    answer = remHour + " hor";
+                }
+                else
+                {
+                    if (remHour >= 2 && remHour <= 24)
+                    {
+                        answer = remHour + " horas";
+                    }
+                    else
+                    {
+                        if (remDay < 7)
+                        {
+                            answer = remDay + " días";
+                        }
+                        else
+                        {
+                            if (remDay >= 7 && remDay <= 14) { answer = "2 semanas"; }
+                            if (remDay >= 15 && remDay <= 21) { answer = "3 semanas"; }
+                            if (remDay >= 22 && remDay <= 28) { answer = "4 semanas"; }
+                            if (remDay >= 29) { answer = "1 mes"; }
+                            if (remMon > 1) { answer = remMon + " meses"; }
+                        }
+
+                    }
+                }
+            }
+            return answer;
+        }
+                  
     }
 }

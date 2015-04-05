@@ -1,8 +1,7 @@
 ﻿<Application
     x:Class="HereAndShare.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"    
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:models="clr-namespace:HereAndShare.Models"
@@ -12,7 +11,7 @@
     <!--Application Resources-->
     <Application.Resources>
         <local:LocalizedStrings xmlns:local="clr-namespace:HereAndShare" x:Key="LocalizedStrings"/>
-
+        <models:DataModel x:Key="dataModel"/>
         <shell:ApplicationBar x:Key="AppBarDescubre" IsVisible="True" IsMenuEnabled="True">
             <shell:ApplicationBarIconButton IconUri="/Images/Search.png" Text="Agregar"/>
             <shell:ApplicationBarIconButton IconUri="/Images/Add.png" Text="Nuevo" Click="AppBarAddRecommendation_Click"/>

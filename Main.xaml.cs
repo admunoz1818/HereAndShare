@@ -14,15 +14,22 @@ using Microsoft.Phone.Tasks;
 using System.IO.IsolatedStorage;
 using System.Windows.Media.Imaging;
 using System.IO;
+using HereAndShare.Net;
+using HereAndShare.Models;
 
 namespace HereAndShare
 {
-    public partial class Main : PhoneApplicationPage
+    public partial class Main : PhoneApplicationPage, Mongo<ItemPost>.IMongo
     {
+
+        Mongo<ItemPost> mongo;
+
         /*Constructor*/
         public Main()
         {
             InitializeComponent();
+            mongo = new Mongo<ItemPost>("9NlswL-HnWVU8mwH5zi8B8mgF7us7wHl", "hereandshare", "itemsPost");
+            mongo.findAllDocuments(this);
         }    
 
         /*Events*/
@@ -106,6 +113,16 @@ namespace HereAndShare
                     ApplicationBar = ((ApplicationBar)Application.Current.Resources["AppBarPerfil"]);
                     break;
             }
-        }        
+        }
+
+        public void loadDocuments(List<ItemPost> documents)
+        {
+            DataModel dmPost = Application.Current.Resources["dataModelPost"] as DataModel;
+            dmPost.Data.Clear();
+            for (int i = 0; i < documents.Count; i++)
+            {
+                dmPost.Data.Add(documents.ElementAt(i));
+            }
+        }
     }
 }
